@@ -9,21 +9,29 @@
   </head>
   <body>
     <div class="app-container">
-      <div>
-        <input type="text" />
+      <div class="input-data">
+        <label for="guest-input"></label>
+        <input
+          class="input-field"
+          type="text"
+          name="guest-input"
+          placeholder="Enter a guest name"
+        />
       </div>
       <div class="btns">
-        <button type="button" class="btn btn--add-start">
+        <button type="button" class="btn btn--add-start" name="guestStart">
           Add Guest @ list start
         </button>
-        <button type="button" class="btn btn--add-end">
+        <button type="button" class="btn btn--add-end" name="guestEnd">
           Add Guest @ list end
         </button>
-        <button type="button" class="btn btn--remove-first">
+        <button type="button" class="btn btn--remove-first" name="removeFirst">
           Remove First
         </button>
-        <button type="button" class="btn btn--remove-last">Remove Last</button>
-        <button type="button" class="btn btn--reverse-list">
+        <button type="button" class="btn btn--remove-last" name="removeLast">
+          Remove Last
+        </button>
+        <button type="button" class="btn btn--reverse-list" name="reverse">
           Reverse List
         </button>
       </div>
