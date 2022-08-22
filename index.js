@@ -16,6 +16,8 @@ output.append(pEl);
 
 allBtns.forEach((btn) =>
   btn.addEventListener("click", (e) => {
+    console.log(e.target.name);
+    if (!inputField.value) return;
     switch (e.target.name) {
       case "guestEnd": {
         guestList.push(guestName);
