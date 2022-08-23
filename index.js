@@ -36,13 +36,31 @@ allBtns.forEach((btn) =>
       case "removeRange": {
         let inputFrom = document.querySelector("#from");
         let inputTo = document.querySelector("#to");
-        let range = inputTo.value - inputFrom.value + 1;
-        guestList.splice(inputFrom.value, range);
+        let range = inputTo.value ? inputTo.value - inputFrom.value : 0;
+        guestList.splice(inputFrom.value - 1, range + 1);
+        break;
+      }
+      case "addName": {
+        let index = document.querySelector("#addNameIndex");
+        guestList.splice(index.value - 1, 0, inputField.value);
+        break;
+      }
+
+      case "last": {
+        let lastElement = guestList.pop();
+        console.log(lastElement);
+        guestList.unshift(lastElement);
+        break;
+      }
+      case "first": {
+        let firstElement = guestList.shift();
+        guestList.push(firstElement);
+        break;
       }
     }
     renderGuestList(guestList);
     window.localStorage.setItem("guestList", JSON.stringify(guestList));
-    inputField.value = "";
+    // inputField.value = "";
   })
 );
 
