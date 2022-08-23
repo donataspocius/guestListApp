@@ -7,7 +7,6 @@ let guestList = [];
 allBtns.forEach((btn) =>
   btn.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log(e.target.name);
     let guestName = inputField.value;
     switch (e.target.name) {
       case "guestEnd": {
@@ -36,6 +35,7 @@ allBtns.forEach((btn) =>
       }
     }
     renderGuestList(guestList);
+    window.localStorage.setItem("guestList", JSON.stringify(guestList));
     inputField.value = "";
   })
 );
@@ -55,3 +55,11 @@ function renderGuestList(list) {
 
   guestsContainer.append(createList);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.localStorage.getItem("guestList")) {
+    guestData = JSON.parse(window.localStorage.getItem("guestList"));
+    guestList = guestData;
+    renderGuestList(guestList);
+  }
+});
