@@ -7,31 +7,37 @@ let guestList = [];
 allBtns.forEach((btn) =>
   btn.addEventListener("click", (e) => {
     e.preventDefault();
-    let guestName = inputField.value;
+    console.log(e.target.name);
     switch (e.target.name) {
       case "guestEnd": {
         if (inputField.value) {
-          guestList.push(guestName);
-          break;
+          guestList.push(inputField.value);
         }
+        break;
       }
       case "guestStart": {
         if (inputField.value) {
-          guestList.unshift(guestName);
-          break;
+          guestList.unshift(inputField.value);
         }
+        break;
       }
       case "removeFirst": {
-        guestList.shift(guestName);
+        guestList.shift(inputField.value);
         break;
       }
       case "removeLast": {
-        guestList.pop(guestName);
+        guestList.pop(inputField.value);
         break;
       }
       case "reverse": {
         guestList.reverse();
         break;
+      }
+      case "removeRange": {
+        let inputFrom = document.querySelector("#from");
+        let inputTo = document.querySelector("#to");
+        let range = inputTo.value - inputFrom.value + 1;
+        guestList.splice(inputFrom.value, range);
       }
     }
     renderGuestList(guestList);
