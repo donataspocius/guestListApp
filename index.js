@@ -57,9 +57,24 @@ allBtns.forEach((btn) =>
         guestList.push(firstElement);
         break;
       }
+      case "sortAZ": {
+        guestList.sort((a, z) => {
+          return a.localeCompare(z);
+        });
+        break;
+      }
+      case "sortZA": {
+        guestList.sort((a, z) => {
+          return z.localeCompare(a);
+        });
+        break;
+      }
+      default:
+        break;
     }
     renderGuestList(guestList);
     window.localStorage.setItem("guestList", JSON.stringify(guestList));
+    console.log(guestList);
     // inputField.value = "";
   })
 );
